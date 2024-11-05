@@ -15,7 +15,7 @@ public class VerifyEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "verify_email", nullable = false)
+    @Column(name = "verify_email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "verify_otp", nullable = false)
@@ -27,7 +27,6 @@ public class VerifyEntity extends BaseEntity{
     @Column(name = "is_deleted", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean deleted;
 
-    @OneToOne
-    @JoinColumn(name = "account_email", nullable = false)
+    @OneToOne(mappedBy = "verify")
     private AccountEntity account;
 }

@@ -20,6 +20,7 @@ public class AccountEntity extends BaseEntity {
     @Column(name = "account_password", nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    private ProfileEntity profile;
+    @OneToOne
+    @JoinColumn(name = "account_email", referencedColumnName = "verify_email", insertable=false, updatable=false)
+    private VerifyEntity verify;
 }
