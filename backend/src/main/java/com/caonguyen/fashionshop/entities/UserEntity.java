@@ -1,16 +1,16 @@
 package com.caonguyen.fashionshop.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Table(name = "user")
-public class UserEntity {
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserEntity extends BaseEntity {
     @Id
     @Column(name = "user_id", nullable = false)
     private int id;
@@ -32,4 +32,8 @@ public class UserEntity {
 
     @Column(name = "user_avatar", length = 300, nullable = true)
     private String avatar;
+
+    @OneToOne
+    @JoinColumn(name = "user_email")
+    private AccountEntity account;
 }
