@@ -21,5 +21,5 @@ public class AccountEntity extends BaseEntity {
     private String password;
 
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    private VerifyEntity verify;
+    private ProfileEntity profile;
 }
