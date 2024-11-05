@@ -3,33 +3,31 @@ package com.caonguyen.fashionshop.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "verify")
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class VerifyEntity extends BaseEntity{
     @Id
+    @Column(name = "verify_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "verify_email")
+    @Column(name = "verify_email", nullable = false)
     private String email;
 
-    @Column(name = "verify_otp")
+    @Column(name = "verify_otp", nullable = false)
     private String otp;
 
-    @Column(name = "verify_purpose")
-    private int purpose;
-
-    @Column(name = "is_verified")
+    @Column(name = "is_verified", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean verified;
 
-    @Column(name = "is_deleted")
+    @Column(name = "is_deleted", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private boolean deleted;
+
+    @OneToOne
+    @JoinColumn(name = "account_email", nullable = false)
+    private AccountEntity account;
 }

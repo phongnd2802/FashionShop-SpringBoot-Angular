@@ -1,4 +1,4 @@
 package com.caonguyen.fashionshop.entities;
 
-public class UserEntity {
+public class UserEntity extends BaseEntity {
 }
