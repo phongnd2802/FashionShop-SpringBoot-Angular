@@ -2,12 +2,11 @@ spring:
   application:
     name: "FashionShop-Backend-API"
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: admin
-    password: 1234
+    url: jdbc:postgresql://localhost:5430/fashionshop
+    username: postgres
+    password: secret
     driver-class-name: org.postgresql.Driver
   jpa:
-    database-platform: org.hibernate.dialect.PostgresSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
