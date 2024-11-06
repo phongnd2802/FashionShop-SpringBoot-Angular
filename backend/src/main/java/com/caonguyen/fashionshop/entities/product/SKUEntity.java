@@ -2,6 +2,7 @@ package com.caonguyen.fashionshop.entities.product;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
 import com.caonguyen.fashionshop.entities.order.OrderEntity;
+import com.caonguyen.fashionshop.entities.cart.CartEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -50,4 +51,8 @@ public class SKUEntity extends BaseEntity {
     @ManyToMany(mappedBy = "skuList")
     @ToString.Exclude
     private List<OrderEntity> orderList = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "skuList")
+    @ToString.Exclude
+    private List<CartEntity> cartList = new ArrayList<>();
 }
