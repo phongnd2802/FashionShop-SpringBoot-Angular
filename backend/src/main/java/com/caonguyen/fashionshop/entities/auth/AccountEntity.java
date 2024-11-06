@@ -1,11 +1,16 @@
-package com.caonguyen.fashionshop.entities;
+package com.caonguyen.fashionshop.entities.auth;
 
+import com.caonguyen.fashionshop.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "account")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountEntity extends BaseEntity {
@@ -23,4 +28,9 @@ public class AccountEntity extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "account_email", referencedColumnName = "verify_email", insertable=false, updatable=false)
     private VerifyEntity verify;
+
+    @OneToOne
+    @JoinColumn(name = "account_role", referencedColumnName = "role_id", insertable=false, updatable=false)
+    private RoleEntity role;
+
 }

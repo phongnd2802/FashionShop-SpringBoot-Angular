@@ -1,18 +1,24 @@
-package com.caonguyen.fashionshop.entities;
+package com.caonguyen.fashionshop.entities.auth;
 
+import com.caonguyen.fashionshop.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "profile")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfileEntity extends BaseEntity {
     @Id
     @Column(name = "profile_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "profile_name", length = 50, nullable = false)

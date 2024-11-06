@@ -1,15 +1,20 @@
-package com.caonguyen.fashionshop.entities;
+package com.caonguyen.fashionshop.entities.auth;
 
 
+import com.caonguyen.fashionshop.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "verify")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class VerifyEntity extends BaseEntity{
+public class VerifyEntity extends BaseEntity {
     @Id
     @Column(name = "verify_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
