@@ -1,6 +1,7 @@
 package com.caonguyen.fashionshop.entities.product;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
+import com.caonguyen.fashionshop.entities.discount.DiscountEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -52,4 +53,9 @@ public class SPUEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "spu", fetch = FetchType.LAZY)
     private List<SKUEntity> skuList = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "spuList")
+    @ToString.Exclude
+    private List<DiscountEntity> discountList = new ArrayList<>();
+
 }
