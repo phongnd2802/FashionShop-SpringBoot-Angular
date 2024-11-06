@@ -1,6 +1,7 @@
 package com.caonguyen.fashionshop.entities.order;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
+import com.caonguyen.fashionshop.entities.auth.AccountEntity;
 import com.caonguyen.fashionshop.entities.discount.DiscountEntity;
 import com.caonguyen.fashionshop.entities.payment.PaymentEntity;
 import com.caonguyen.fashionshop.entities.product.SKUEntity;
@@ -22,8 +23,9 @@ public class OrderEntity extends BaseEntity {
     @Column(name = "order_id", nullable = false)
     private String id;
 
-    @Column(name = "order_customerId", nullable = false)
-    private String customerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_customerId", referencedColumnName = "account_email", nullable = false)
+    private AccountEntity account;
 
     @Column(name = "order_customerName", nullable = false)
     private String customerName;
