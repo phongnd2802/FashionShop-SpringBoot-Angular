@@ -1,0 +1,25 @@
+package com.caonguyen.fashionshop.entities.other;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "ward")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class WardEntity {
+    @Id
+    @Column(name = "ward_id")
+    private int id;
+
+    @Column(name = "ward_name", nullable = false)
+    private String name;
+}

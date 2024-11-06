@@ -1,12 +1,10 @@
 package com.caonguyen.fashionshop.entities.discount;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
+import com.caonguyen.fashionshop.entities.order.OrderEntity;
 import com.caonguyen.fashionshop.entities.product.SPUEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -64,4 +62,8 @@ public class DiscountEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "spu_id")
     )
     private List<SPUEntity> spuList = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "discountList")
+    @ToString.Exclude
+    private List<OrderEntity> orderList = new ArrayList<>();
 }

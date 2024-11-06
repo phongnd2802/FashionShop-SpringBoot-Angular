@@ -1,6 +1,7 @@
 package com.caonguyen.fashionshop.entities.product;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
+import com.caonguyen.fashionshop.entities.order.OrderEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -45,4 +46,8 @@ public class SKUEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "spu_code", nullable = false)
     private SPUEntity spu;
+
+    @ManyToMany(mappedBy = "skuList")
+    @ToString.Exclude
+    private List<OrderEntity> orderList = new ArrayList<>();
 }
