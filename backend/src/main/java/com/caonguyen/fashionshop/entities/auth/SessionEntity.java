@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -23,7 +24,14 @@ public class SessionEntity extends BaseEntity {
     @Column(name = "session_refresh_token", nullable = false)
     private String refreshToken;
 
+    @Column(name = "session_refresh_token_used")
+    private String refreshTokenUsed;
+
     @ManyToOne
-    @JoinColumn(name = "")
+    @JoinColumn(name = "account_email", nullable = false)
     private AccountEntity account;
+
+    @Column(name = "session_expires_at", nullable = false)
+    private LocalDateTime expiresAt;
+
 }

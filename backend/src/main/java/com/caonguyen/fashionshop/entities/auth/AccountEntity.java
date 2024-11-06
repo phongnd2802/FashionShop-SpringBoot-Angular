@@ -1,11 +1,15 @@
 package com.caonguyen.fashionshop.entities.auth;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
+import com.caonguyen.fashionshop.entities.product.SKUEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "account")
@@ -33,4 +37,6 @@ public class AccountEntity extends BaseEntity {
     @JoinColumn(name = "account_role", referencedColumnName = "role_id", insertable=false, updatable=false)
     private RoleEntity role;
 
+    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
+    private List<SessionEntity> sessions = new ArrayList<>();
 }
