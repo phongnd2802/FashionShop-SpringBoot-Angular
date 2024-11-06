@@ -2,6 +2,8 @@ package com.caonguyen.fashionshop.entities.auth;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
 import com.caonguyen.fashionshop.entities.cart.CartEntity;
+import com.caonguyen.fashionshop.entities.evaluation.EvaluationEntity;
+import com.caonguyen.fashionshop.entities.order.OrderEntity;
 import com.caonguyen.fashionshop.entities.product.SKUEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -43,5 +45,10 @@ public class AccountEntity extends BaseEntity {
 
     @OneToOne(mappedBy = "account")
     private CartEntity cart;
-    
+
+    @OneToMany(mappedBy = "account")
+    private List<EvaluationEntity> evaluationList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "account")
+    private List<OrderEntity> orderList = new ArrayList<>();
 }

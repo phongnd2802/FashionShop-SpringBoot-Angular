@@ -25,7 +25,7 @@ public class CartEntity extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cart_state", nullable = false, columnDefinition = "VARCHAR(50) DEFAULT 'active'")
+    @Column(name = "cart_state", nullable = false)
     private String state;
 
     @Column(name = "cart_count_product", nullable = false, columnDefinition = "INT DEFAULT 0")
