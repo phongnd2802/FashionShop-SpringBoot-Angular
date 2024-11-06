@@ -20,8 +20,12 @@ minio:
   host: localhost
   port: 9000
   key:
-    access: psuEXGWwKAoytjPmm6pN
-    secret: V4xaeDC3oX9mEeC3KNtyIE8RZqXaRrc7jGb1y7ib
+    # Phong
+#    access: psuEXGWwKAoytjPmm6pN
+#    secret: V4xaeDC3oX9mEeC3KNtyIE8RZqXaRrc7jGb1y7ib
 
+    #Tri Anh
+    access: OmeI3K75ARVyaLHiW9Ms
+    secret: d8GG52DsslPZIP1jcfVMofYVxHfv9H4jjTtJ8wZ8
 server:
   port: 8080
