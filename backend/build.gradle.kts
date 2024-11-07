@@ -27,10 +27,13 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.3.5")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis:3.3.5")
+	implementation("org.springframework.security:spring-security-crypto:6.3.3")
+	implementation("org.springframework.boot:spring-boot-starter-mail:3.3.5")
 	implementation("io.minio:minio:8.5.10")
 	implementation("org.postgresql:postgresql:42.7.3")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
+	implementation("org.springframework.boot:spring-boot-starter-validation:3.3.5")
 
 
 

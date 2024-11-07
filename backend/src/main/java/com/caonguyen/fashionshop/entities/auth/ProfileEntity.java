@@ -33,7 +33,7 @@ public class ProfileEntity extends BaseEntity {
     @Column(name = "profile_birthDay", nullable = true)
     private Date birthDay;
 
-    @Column(name = "profile_address", length = 300, nullable = false)
+    @Column(name = "profile_address", length = 300)
     private String address;
 
     @Column(name = "profile_avatar", length = 300, nullable = true)
