@@ -2,6 +2,7 @@ package com.caonguyen.fashionshop.services;
 
 import com.caonguyen.fashionshop.dtos.request.user.*;
 import com.caonguyen.fashionshop.dtos.response.user.*;
+import jakarta.validation.Valid;
 
 public interface IUserService {
     RegisterRes Register(RegisterRequest req);

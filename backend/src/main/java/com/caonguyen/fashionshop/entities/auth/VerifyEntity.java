@@ -23,6 +23,9 @@ public class VerifyEntity extends BaseEntity {
     @Column(name = "verify_email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "verify_key_hash", nullable = false)
+    private String verifyKeyHash;
+
     @Column(name = "verify_otp", nullable = false)
     private String otp;
 

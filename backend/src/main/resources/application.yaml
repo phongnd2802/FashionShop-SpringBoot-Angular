@@ -9,13 +9,27 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate.format_sql: true
+#    show-sql: true
+#    properties:
+#      hibernate.format_sql: true
   redis:
     host: localhost
     port: 6379
-
+  mail:
+    port: 587
+    host: smtp.gmail.com
+    password: xxxx
+    username: xxxx
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
 minio:
   host: localhost
   port: 9000
@@ -27,5 +41,7 @@ minio:
     #Tri Anh
     access: OmeI3K75ARVyaLHiW9Ms
     secret: d8GG52DsslPZIP1jcfVMofYVxHfv9H4jjTtJ8wZ8
+
+
 server:
   port: 8080
