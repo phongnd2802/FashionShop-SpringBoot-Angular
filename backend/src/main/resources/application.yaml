@@ -35,13 +35,14 @@ minio:
   port: 9000
   key:
     # Phong
-#    access: psuEXGWwKAoytjPmm6pN
-#    secret: V4xaeDC3oX9mEeC3KNtyIE8RZqXaRrc7jGb1y7ib
+    access: psuEXGWwKAoytjPmm6pN
+    secret: V4xaeDC3oX9mEeC3KNtyIE8RZqXaRrc7jGb1y7ib
 
-    #Tri Anh
-    access: OmeI3K75ARVyaLHiW9Ms
-    secret: d8GG52DsslPZIP1jcfVMofYVxHfv9H4jjTtJ8wZ8
+#    #Tri Anh
+#    access: OmeI3K75ARVyaLHiW9Ms
+#    secret: d8GG52DsslPZIP1jcfVMofYVxHfv9H4jjTtJ8wZ8
 
-
+jwt:
+  secret: V4xaeDC3oX9mEeC3KNtyIE8RZqXaRrc7jGb1y7ib
 server:
   port: 8080

@@ -46,7 +46,7 @@ public class SKUEntity extends BaseEntity {
     private List<String> images = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "spu_code", nullable = false)
+    @JoinColumn(name = "spu_code", referencedColumnName = "spu_code", nullable = false)
     private SPUEntity spu;
 
     @ManyToMany(mappedBy = "skuList")

@@ -15,6 +15,7 @@ import com.caonguyen.fashionshop.repositories.ProfileRepository;
 import com.caonguyen.fashionshop.repositories.RoleRepository;
 import com.caonguyen.fashionshop.repositories.VerifyRepository;
 import com.caonguyen.fashionshop.security.PasswordEncoder;
+import com.caonguyen.fashionshop.services.IEmailService;
 import com.caonguyen.fashionshop.services.IUserService;
 import com.caonguyen.fashionshop.services.RedisService;
 import com.caonguyen.fashionshop.utils.CryptoUtil;
@@ -23,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 
@@ -45,6 +47,9 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private IEmailService emailService;
 
     @Transactional
     @Override
@@ -78,6 +83,7 @@ public class UserServiceImpl implements IUserService {
         System.out.println(verify.getId());
         // Save to Redis
         redisService.set(userKey, String.valueOf(otpNew), 3, TimeUnit.MINUTES);
+
         // Send OTP to Email
 
         // Response
@@ -155,6 +161,24 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public LoginRes Login(LoginRequest req) {
+        String email = req.getEmail();
+        String password = req.getPassword();
+
+        AccountEntity accountEntity = accountRepository.findByEmail(email);
+        if (accountEntity == null) {
+            throw new UnAuthorizedException("email hoặc mật khẩu không đúng");
+        }
+
+        boolean match = passwordEncoder.matches(password, accountEntity.getPassword());
+        if (!match) {
+            throw new UnAuthorizedException("email hoặc mật khẩu không đúng");
+        }
+
+        // Response
+        LoginRes res = new LoginRes();
+        res.setSessionId(UUID.randomUUID().toString());
+        res.setAccessToken("secret");
+        res.setRefreshToken("secret");
         return null;
     }
 

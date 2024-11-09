@@ -44,7 +44,7 @@ public class DiscountEntity extends BaseEntity {
     private LocalDateTime endTime;
 
     @Column(name = "discount_max_uses", nullable = false)
-    private int maxUses; // so luong duoc su dung discoun nay
+    private int maxUses; // so luong duoc su dung discount nay
 
     @Column(name = "discount_uses_count", nullable = false)
     private int usesCount; // da duoc su dung bao nhieu

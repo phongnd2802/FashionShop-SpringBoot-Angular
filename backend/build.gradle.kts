@@ -34,6 +34,7 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	implementation("org.springframework.boot:spring-boot-starter-validation:3.3.5")
+	implementation("io.jsonwebtoken:jjwt-api:0.11.2")
 
 
 

@@ -1,7 +1,9 @@
 package com.caonguyen.fashionshop.controllers;
+import com.caonguyen.fashionshop.dtos.request.user.LoginRequest;
 import com.caonguyen.fashionshop.dtos.request.user.RegisterRequest;
 import com.caonguyen.fashionshop.dtos.request.user.SetPasswordRequest;
 import com.caonguyen.fashionshop.dtos.request.user.VerifyOTPRequest;
+import com.caonguyen.fashionshop.dtos.response.user.LoginRes;
 import com.caonguyen.fashionshop.dtos.response.user.RegisterRes;
 import com.caonguyen.fashionshop.dtos.response.user.SetPasswordRes;
 import com.caonguyen.fashionshop.dtos.response.user.VerifyOTPRes;
@@ -30,8 +32,14 @@ public class UserController {
     }
 
     @PostMapping("/set_password")
-    public  ResponseEntity<SetPasswordRes> setPassword(@RequestBody SetPasswordRequest req) {
+    public ResponseEntity<SetPasswordRes> setPassword(@RequestBody @Valid SetPasswordRequest req) {
         SetPasswordRes response = userService.SetPasswordRegister(req);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginRes> login(@RequestBody @Valid LoginRequest req) {
+        LoginRes response = userService.Login(req);
         return ResponseEntity.ok(response);
     }
 

@@ -1,9 +1,10 @@
 package com.caonguyen.fashionshop.repositories;
 
-import com.caonguyen.fashionshop.entities.auth.ProfileEntity;
+import com.caonguyen.fashionshop.entities.product.SKUEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProfileRepository extends JpaRepository<ProfileEntity, Long> {
+public interface SKURepository extends JpaRepository<SKUEntity, Long> {
+    SKUEntity findByCode(String code);
 }
