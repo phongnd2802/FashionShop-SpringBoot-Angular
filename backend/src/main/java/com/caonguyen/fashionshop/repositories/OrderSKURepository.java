@@ -1,10 +1,10 @@
 package com.caonguyen.fashionshop.repositories;
 
-import com.caonguyen.fashionshop.entities.auth.RoleEntity;
+import com.caonguyen.fashionshop.entities.order.OrderSKUEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RoleRepository extends JpaRepository<RoleEntity, Integer> {
-    RoleEntity findByName(String name);
+public interface OrderSKURepository extends JpaRepository<OrderSKUEntity, Long> {
+
 }

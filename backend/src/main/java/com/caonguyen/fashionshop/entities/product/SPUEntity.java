@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SPUEntity extends BaseEntity {
+public class    SPUEntity extends BaseEntity {
     @Id
     @Column(name = "spu_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,6 +46,9 @@ public class SPUEntity extends BaseEntity {
 
     @Column(name = "spu_sort", nullable = false)
     private int sort;
+
+    @Column(name = "spu_id_Deleted", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private boolean isDeleted;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

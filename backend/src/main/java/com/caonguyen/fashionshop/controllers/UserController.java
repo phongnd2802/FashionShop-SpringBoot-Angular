@@ -5,6 +5,7 @@ import com.caonguyen.fashionshop.dtos.request.user.VerifyOTPRequest;
 import com.caonguyen.fashionshop.dtos.response.user.RegisterRes;
 import com.caonguyen.fashionshop.dtos.response.user.SetPasswordRes;
 import com.caonguyen.fashionshop.dtos.response.user.VerifyOTPRes;
+import com.caonguyen.fashionshop.services.IProductService;
 import com.caonguyen.fashionshop.services.IUserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,6 @@ public class UserController {
         SetPasswordRes response = userService.SetPasswordRegister(req);
         return ResponseEntity.ok(response);
     }
+
 
 }

@@ -24,25 +24,31 @@ public class OrderEntity extends BaseEntity {
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_customerId", referencedColumnName = "account_email", nullable = false)
+    @JoinColumn(name = "order_customer_email", referencedColumnName = "account_email", nullable = false)
     private AccountEntity account;
 
-    @Column(name = "order_customerName", nullable = false)
+    @Column(name = "order_customer_name", nullable = false)
     private String customerName;
 
-    @Column(name = "order_customerPhoneNumber", nullable = false)
+    @Column(name = "order_customer_phoneNumber", nullable = false)
     private String customerPhoneNumber;
 
     @Column(name = "order_address", nullable = false)
     private String address;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "order_sku",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "sku_code")
-    )
-    private List<SKUEntity> skuList = new ArrayList<>();
+    @Column(name = "order_status", nullable = false)
+    private String status;
+
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "order_sku",
+//            joinColumns = @JoinColumn(name = "order_id"),
+//            inverseJoinColumns = @JoinColumn(name = "sku_code")
+//    )
+//    private List<SKUEntity> skuList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<OrderSKUEntity> orderSkuList = new ArrayList<>();
 
     @Column(name = "order_totalPrice", nullable = false)
     private int totalPrice;

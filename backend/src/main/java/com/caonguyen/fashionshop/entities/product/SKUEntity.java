@@ -1,9 +1,11 @@
 package com.caonguyen.fashionshop.entities.product;
 
 import com.caonguyen.fashionshop.entities.BaseEntity;
+import com.caonguyen.fashionshop.entities.cart.CartItemEntity;
 import com.caonguyen.fashionshop.entities.evaluation.EvaluationEntity;
 import com.caonguyen.fashionshop.entities.order.OrderEntity;
 import com.caonguyen.fashionshop.entities.cart.CartEntity;
+import com.caonguyen.fashionshop.entities.order.OrderSKUEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -45,18 +47,31 @@ public class SKUEntity extends BaseEntity {
     @Column(name = "image_url")
     private List<String> images = new ArrayList<>();
 
+    @Column(name = "sku_id_Deleted", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private boolean isDeleted;
+
     @ManyToOne
-    @JoinColumn(name = "spu_code", nullable = false)
+    @JoinColumn(name = "spu_code", referencedColumnName = "spu_code", nullable = false)
     private SPUEntity spu;
 
-    @ManyToMany(mappedBy = "skuList")
-    @ToString.Exclude
-    private List<OrderEntity> orderList = new ArrayList<>();
+//    @ManyToMany(mappedBy = "skuList")
+//    @ToString.Exclude
+//    private List<OrderEntity> orderList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "skuList")
-    @ToString.Exclude
-    private List<CartEntity> cartList = new ArrayList<>();
+    @OneToMany(mappedBy = "sku", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderSKUEntity> orderSkuList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "sku", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItemEntity> cartItemList = new ArrayList<>();
 
     @OneToMany(mappedBy = "sku")
     private List<EvaluationEntity> evaluationList = new ArrayList<>();
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
 }

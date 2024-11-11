@@ -25,21 +25,13 @@ public class CartEntity extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cart_state", nullable = false)
-    private String state;
-
     @Column(name = "cart_count_product", nullable = false, columnDefinition = "INT DEFAULT 0")
     private int countProduct;
 
     @OneToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "account_id", insertable = false, updatable = false)
+    @JoinColumn(name = "account_email", referencedColumnName = "account_email", insertable = true, updatable = true)
     private AccountEntity account;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "cart_skus",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "sku_code")
-    )
-    private List<SKUEntity> skuList = new ArrayList<>();
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<CartItemEntity> items = new ArrayList<>();
 }
