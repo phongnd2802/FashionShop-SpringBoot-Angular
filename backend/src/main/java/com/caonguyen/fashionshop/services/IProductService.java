@@ -1,11 +1,14 @@
 package com.caonguyen.fashionshop.services;
 
-import com.caonguyen.fashionshop.dtos.request.product.ProductRequest;
-import com.caonguyen.fashionshop.dtos.response.product.ProductRes;
+import com.caonguyen.fashionshop.dtos.request.product.*;
+import com.caonguyen.fashionshop.dtos.response.product.*;
+
+import java.util.List;
 
 public interface IProductService {
-    ProductRes CreateProduct(ProductRequest req);
-    ProductRes UpdateProduct(ProductRequest req);
-    ProductRes DeleteProduct(ProductRequest req);
-
+    CreateProductRes createProduct(CreateProductRequest req);
+    UpdateProductRes updateProduct(UpdateProductRequest req);
+    DeleteProductRes deleteProduct(DeleteProductRequest req);
+    List<SearchSPURes> searchSPU(SearchSPURequest req);
+    List<SearchSKURes> searchSKU(SearchSKURequest req);
 }

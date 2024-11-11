@@ -1,4 +1,4 @@
-package com.caonguyen.fashionshop.services;
+package com.caonguyen.fashionshop.services.other;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

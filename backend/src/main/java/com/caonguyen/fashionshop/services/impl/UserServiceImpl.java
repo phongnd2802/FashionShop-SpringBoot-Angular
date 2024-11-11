@@ -16,7 +16,7 @@ import com.caonguyen.fashionshop.repositories.RoleRepository;
 import com.caonguyen.fashionshop.repositories.VerifyRepository;
 import com.caonguyen.fashionshop.security.PasswordEncoder;
 import com.caonguyen.fashionshop.services.IUserService;
-import com.caonguyen.fashionshop.services.RedisService;
+import com.caonguyen.fashionshop.services.other.RedisService;
 import com.caonguyen.fashionshop.utils.CryptoUtil;
 import com.caonguyen.fashionshop.utils.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;

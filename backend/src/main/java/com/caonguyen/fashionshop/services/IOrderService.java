@@ -1,5 +1,9 @@
 package com.caonguyen.fashionshop.services;
 
-public interface IOrderService {
 
+import com.caonguyen.fashionshop.dtos.request.orders.CreateOrderRequset;
+import com.caonguyen.fashionshop.dtos.response.orders.CreateOrderRes;
+
+public interface IOrderService {
+    CreateOrderRes createOrder(CreateOrderRequset req);
 }
